@@ -19,9 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppStyles.bgColor,
       body: ListView(
         children: [
-          SizedBox(height: 40,),
+          const SizedBox(height: 40,),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Good morning",
                           style: AppStyles.headlineStyle3,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 50,
                       decoration: BoxDecoration(
                           image:
-                              DecorationImage(image: AssetImage(AppMedia.logo)),
+                              const DecorationImage(image: AssetImage(AppMedia.logo)),
                           borderRadius: BorderRadius.circular(5)),
                     )
                   ],
@@ -57,11 +57,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 25,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 12),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xFFF4F6FD)),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Icon(
                         FluentSystemIcons.ic_fluent_search_regular,
@@ -72,17 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 40,),
-                AppDoubleText(bigText: "Upcoming Flights",smallText: "View all"),
-                SizedBox(height: 20,),
-                TicketView()
+                const SizedBox(height: 40,),
+                const AppDoubleText(bigText: "Upcoming Flights",smallText: "View all"),
+                const SizedBox(height: 20,),
+                const TicketView()
               ],
             ),
           ),
-          // Gap(),
-          SingleChildScrollView(),
-          Container(),
-          SingleChildScrollView()
         ],
       ),
     );

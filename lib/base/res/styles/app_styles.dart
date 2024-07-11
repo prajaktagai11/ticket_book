@@ -24,8 +24,12 @@ class AppStyles{
     fontWeight: FontWeight.bold,
     color: textColor
   );
-  static TextStyle headlineStyle3 = TextStyle(
+  static TextStyle headlineStyle3 = const TextStyle(
       fontSize: 17,
+      fontWeight: FontWeight.w500,
+  );
+  static TextStyle headlineStyle4 = const TextStyle(
+      fontSize: 14,
       fontWeight: FontWeight.w500,
   );
 }

@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xFFF4F6FD)),
@@ -78,18 +78,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                const AppDoubleText(
-                    bigText: "Upcoming Flights", smallText: "View all"),
+                AppDoubleText(
+                  bigText: "Upcoming Flights", smallText: "View all", func: () {
+                  Navigator.pushNamed(context, "/all_tickets");
+                },),
                 const SizedBox(
                   height: 20,
                 ),
                 SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: ticketList.take(2).map((singleTicket) =>
-                        TicketView(ticket:singleTicket)
-                    ).toList()
-                    ))
+                        children: ticketList.take(2).map((singleTicket) =>
+                            TicketView(ticket: singleTicket)
+                        ).toList()
+                    )),
+                const SizedBox(
+                  height: 40,
+                ),
+                 AppDoubleText(
+                    bigText: "Hotels", smallText: "View all", func: () { Navigator.pushNamed(context, "/all_hotels"); },),
               ],
             ),
           ),

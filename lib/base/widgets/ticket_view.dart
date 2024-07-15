@@ -9,9 +9,10 @@ import 'package:ticket_book/base/widgets/textstyle_third.dart';
 import 'big_circle.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({super.key, required this.ticket});
+  const TicketView({super.key, required this.ticket, this.wholeScreen = false});
 
   final Map<String, dynamic> ticket;
+  final bool wholeScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class TicketView extends StatelessWidget {
       width: size.width * 0.85,
       height: 189,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: wholeScreen == true ? 0 : 16),
         child: Column(
           children: [
             Container(

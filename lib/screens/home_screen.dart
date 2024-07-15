@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_book/base/res/media.dart';
 import 'package:ticket_book/base/res/styles/app_styles.dart';
+import 'package:ticket_book/base/utils/all_json.dart';
 import 'package:ticket_book/base/widgets/app_double_text.dart';
 import 'package:ticket_book/base/widgets/ticket_view.dart';
 
@@ -19,7 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppStyles.bgColor,
       body: ListView(
         children: [
-          const SizedBox(height: 40,),
+          const SizedBox(
+            height: 40,
+          ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -47,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                          image:
-                              const DecorationImage(image: AssetImage(AppMedia.logo)),
+                          image: const DecorationImage(
+                              image: AssetImage(AppMedia.logo)),
                           borderRadius: BorderRadius.circular(5)),
                     )
                   ],
@@ -57,7 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 25,
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xFFF4F6FD)),
@@ -68,14 +72,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color(0xFfBFC205),
                       ),
                       Text("Search"),
-
                     ],
                   ),
                 ),
-                const SizedBox(height: 40,),
-                const AppDoubleText(bigText: "Upcoming Flights",smallText: "View all"),
-                const SizedBox(height: 20,),
-                const TicketView()
+                const SizedBox(
+                  height: 40,
+                ),
+                const AppDoubleText(
+                    bigText: "Upcoming Flights", smallText: "View all"),
+                const SizedBox(
+                  height: 20,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: ticketList.take(2).map((singleTicket) =>
+                        TicketView(ticket:singleTicket)
+                    ).toList()
+                    ))
               ],
             ),
           ),

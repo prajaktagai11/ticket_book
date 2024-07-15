@@ -17,8 +17,8 @@ class BigCircle extends StatelessWidget {
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10))
                 : const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10)),
+                    topRight: Radius.circular(10),
+                    bottomRight: Radius.circular(10)),
             color: Colors.white),
       ),
     );

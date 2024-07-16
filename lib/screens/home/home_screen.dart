@@ -5,6 +5,8 @@ import 'package:ticket_book/base/res/styles/app_styles.dart';
 import 'package:ticket_book/base/utils/all_json.dart';
 import 'package:ticket_book/base/widgets/app_double_text.dart';
 import 'package:ticket_book/base/widgets/ticket_view.dart';
+import 'package:ticket_book/screens/home/widgets/hotel.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -61,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xFFF4F6FD)),
@@ -79,24 +81,44 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40,
                 ),
                 AppDoubleText(
-                  bigText: "Upcoming Flights", smallText: "View all", func: () {
-                  Navigator.pushNamed(context, "/all_tickets");
-                },),
+                  bigText: "Upcoming Flights",
+                  smallText: "View all",
+                  func: () {
+                    Navigator.pushNamed(context, "/all_tickets");
+                  },
+                ),
                 const SizedBox(
                   height: 20,
                 ),
                 SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                        children: ticketList.take(2).map((singleTicket) =>
-                            TicketView(ticket: singleTicket)
-                        ).toList()
-                    )),
+                        children: ticketList
+                            .take(2)
+                            .map((singleTicket) =>
+                                TicketView(ticket: singleTicket))
+                            .toList())),
                 const SizedBox(
                   height: 40,
                 ),
-                 AppDoubleText(
-                    bigText: "Hotels", smallText: "View all", func: () { Navigator.pushNamed(context, "/all_hotels"); },),
+                AppDoubleText(
+                  bigText: "Hotels",
+                  smallText: "View all",
+                  func: () {
+                    Navigator.pushNamed(context, "/all_hotels");
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                        children: hotelList
+                            .take(2)
+                            .map((singleHotel) =>
+                                Hotel(hotel: singleHotel))
+                            .toList()))
               ],
             ),
           ),

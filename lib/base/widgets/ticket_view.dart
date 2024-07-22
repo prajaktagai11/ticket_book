@@ -102,7 +102,7 @@ class TicketView extends StatelessWidget {
                       SizedBox(
                           width: 100,
                           child: TextStyleFourth(
-                            text: ticket["to"]["code"],
+                            text: ticket["to"]["name"],
                             align: TextAlign.end,
                             isColor: isColor,
                           )),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_book/base/res/media.dart';
 import 'package:ticket_book/base/res/styles/app_styles.dart';
 import 'package:ticket_book/base/utils/all_json.dart';
+import 'package:ticket_book/base/utils/app_routes.dart';
 import 'package:ticket_book/base/widgets/app_double_text.dart';
 import 'package:ticket_book/base/widgets/ticket_view.dart';
 import 'package:ticket_book/screens/home/widgets/hotel.dart';
@@ -84,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   bigText: "Upcoming Flights",
                   smallText: "View all",
                   func: () {
-                    Navigator.pushNamed(context, "/all_tickets");
+                    Navigator.pushNamed(context, AppRoutes.allTickets);
                   },
                 ),
                 const SizedBox(
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   bigText: "Hotels",
                   smallText: "View all",
                   func: () {
-                    Navigator.pushNamed(context, "/all_hotels");
+                    Navigator.pushNamed(context, AppRoutes.allHotels);
                   },
                 ),
                 const SizedBox(

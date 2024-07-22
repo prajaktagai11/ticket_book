@@ -11,28 +11,52 @@ import '../../base/widgets/app_layoutbuilder_widget.dart';
 import '../../base/widgets/textstyle_fourth.dart';
 import '../../base/widgets/textstyle_third.dart';
 
-class TicketScreen extends StatelessWidget {
-  const TicketScreen({super.key});
+class TicketScreen extends StatefulWidget {
+  const TicketScreen({
+    super.key,
+  });
+
+  @override
+  State<TicketScreen> createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  late int ticketIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      var args = ModalRoute.of(context)!.settings.arguments as Map;
+      ticketIndex = args["index"];
+      debugPrint("passed index : ${args["index"]}");
+    }
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.bgColor,
+      appBar: AppBar(
+        title: const Text("Tickets"),
+        backgroundColor: AppStyles.bgColor,
+      ),
       body: Stack(
         children: [
           ListView(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
             children: [
-              const SizedBox(
-                height: 40,
-              ),
-              Text(
-                "Tickets",
-                style: AppStyles.headlineStyle1,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
+              // const SizedBox(
+              //   height: 40,
+              // ),
+              // Text(
+              //   "Tickets",
+              //   style: AppStyles.headlineStyle1,
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
               const AppTicketTabs(
                 text1: 'Upcoming',
                 text2: 'Previous',
@@ -43,7 +67,7 @@ class TicketScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(left: 16),
                 child: TicketView(
-                  ticket: ticketList[0],
+                  ticket: ticketList[ticketIndex],
                   isColor: true,
                 ),
               ),
@@ -175,7 +199,7 @@ class TicketScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(left: 16),
                 child: TicketView(
-                  ticket: ticketList[0],
+                  ticket: ticketList[ticketIndex],
                 ),
               ),
             ],
@@ -186,8 +210,7 @@ class TicketScreen extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,border: Border.all(width: 2)
-                ),
+                    shape: BoxShape.circle, border: Border.all(width: 2)),
                 child: CircleAvatar(
                   maxRadius: 4,
                   backgroundColor: AppStyles.textColor,
@@ -199,8 +222,7 @@ class TicketScreen extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,border: Border.all(width: 2)
-                ),
+                    shape: BoxShape.circle, border: Border.all(width: 2)),
                 child: CircleAvatar(
                   maxRadius: 4,
                   backgroundColor: AppStyles.textColor,
